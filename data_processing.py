@@ -4,6 +4,13 @@ from Bio import SeqIO
 from collections import Counter
 import json
 import numpy as np
+import matplotlib.cm as cm
+import arcadia_pycolor as apc
+import matplotlib.pyplot as plt
+import seaborn as sns
+import arcadia_pycolor as apc
+apc.mpl.setup()
+
 
 
 
@@ -62,15 +69,16 @@ def plot_evo_path(scores_df, tree, leaf_name, labels = False):
     # Subset the relevant data
     for_plot = scores_df[scores_df['sequence_id'].isin(these_nodes)]
 
-    plt.figure(figsize=(12, 3))
+    plt.figure(figsize=(16, 4))
 
     # Scatter plot with color representing ML probability
     scatter = plt.scatter(
         for_plot['bl_to_root'],
         for_plot['pseudo_perplexity'],
         c=for_plot['ML prob'],
-        cmap='viridis_r',
-        marker='o'
+        cmap=apc.gradients.viridis.to_mpl_cmap().reversed(),
+        marker='o',
+        s = 100
     )
 
     #Add labels for each point using the sequence_id
@@ -88,7 +96,7 @@ def plot_evo_path(scores_df, tree, leaf_name, labels = False):
     # Add the leaf point in pink
     x = calc_branch_length_to_root_leaf(tree, leaf_name)
     y = scores_df[scores_df['sequence_id'] == leaf_name]['pseudo_perplexity'].to_list()[0]
-    plt.scatter(x, y, color='deeppink', label='Leaf', zorder=10)
+    plt.scatter(x, y, color='#F28360', label='Leaf', zorder=10, s = 100)
 
     # Add colorbar
     plt.colorbar(scatter, label='ASR Mean Posterior Probability')
@@ -107,10 +115,10 @@ def plot_image_with_arrows(
     arrow_ys,
     labels,
     text_offsets=None,
-    arrow_color='deeppink',
+    arrow_color='#F28360',
     arrow_linewidth=2,
-    figsize=(8, 6),
-    fontsize=10
+    figsize=(12, 9),
+    fontsize=14
 ):
     """
     Plot image with multiple left-pointing arrows and labels.
@@ -179,9 +187,9 @@ def plot_image_with_arrow_and_circles(
     arrow_y=0.05,
     circle_positions=[(0.5, 0.5)],
     circle_radius=10,
-    circle_color='deeppink',
+    circle_color='#F28360',
     filled=True,
-    arrow_color='deeppink',
+    arrow_color='#F28360',
     arrow_linewidth=2,
     figsize=(8, 6)
 ):
@@ -309,7 +317,7 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
     up_indices = dy > 0
     down_indices = dy < 0
 
-    plt.figure(figsize=(12, 3))
+    plt.figure(figsize=(18, 4))
 
     # Plot original points
     scatter = plt.scatter(
@@ -317,7 +325,8 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
         y_old,
         color = 'black',
         marker='o',
-        label='ML'
+        label='ML ancestor',
+        s = 80
     )
 
     # Upward arrows in green
@@ -325,7 +334,7 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
         x_vals[up_indices], y_old[up_indices],
         dx[up_indices], dy[up_indices],
         angles='xy', scale_units='xy', scale=1,
-        color='mediumseagreen', width=0.003, headwidth=3, headlength=5
+        color='#73B5E3', width=0.003, headwidth=3, headlength=5
     )
 
     # Downward arrows in red
@@ -333,7 +342,7 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
         x_vals[down_indices], y_old[down_indices],
         dx[down_indices], dy[down_indices],
         angles='xy', scale_units='xy', scale=1,
-        color='tomato', width=0.003, headwidth=3, headlength=5
+        color='#F7B846', width=0.003, headwidth=3, headlength=5
     )
 
     # Plot new (consensus) values
@@ -342,20 +351,85 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
         y_new,
         color='black',
         marker='X',
-        label='Consensus',
-        alpha=0.8
+        label='Consensus ancestor',
+        alpha=0.8, 
+        s = 80
     )
 
     # Highlight the leaf
     x_leaf = calc_branch_length_to_root_leaf(tree, leaf_name)
     y_leaf = scores_df[scores_df['sequence_id'] == leaf_name]['pseudo_perplexity'].values[0]
-    plt.scatter(x_leaf, y_leaf, color='deeppink', label='Leaf', zorder=10)
+    plt.scatter(x_leaf, y_leaf, color='#F28360', label='Leaf', zorder=10, s = 80)
 
     # Labels and layout
     plt.xlabel('Distance to Tree Root (subs/site)')
     plt.ylabel('ESM2 Pseudo Perplexity')
     plt.title(leaf_name)
-    plt.legend()
-    plt.tight_layout()
+    plt.scatter([], [], color='#73B5E3', label='ML ancestor lower pppl', marker='^')
+    plt.scatter([], [], color='#F7B846', label='Consensus ancestor lower pppl', marker='v')
+    plt.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
     plt.show()
 
+def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
+    """
+    Parameters:
+        score_dfs_leaves_labels: list of tuples (scores_df, leaf_name, label_name)
+        tree: Phylogenetic tree used to compute distances
+        normalize: whether to normalize pseudo perplexity to the leaf value
+    """
+    plt.figure(figsize=(18, 3))
+    
+    n_lines = len(score_dfs_leaves_labels)
+    colors = cm.rainbow_r(np.linspace(0, 1.0, n_lines))  # rainbow colormap
+    colors = ['#C85152', '#FFB984', '#97CD78', '#73B5E3', '#7A77AB']
+
+    for i, (scores_df, leaf_name, label_name) in enumerate(score_dfs_leaves_labels):
+        color = colors[i]
+
+        these_nodes = get_node_labels_leaf_to_root(tree, leaf_name)
+        for_plot = scores_df[scores_df['sequence_id'].isin(these_nodes)].copy()
+        for_plot.sort_values('bl_to_root', inplace=True)
+
+        # Get leaf value
+        leaf_value = scores_df[scores_df['sequence_id'] == leaf_name]['pseudo_perplexity'].to_list()[0]
+
+        # Normalize if requested
+        if normalize:
+            for_plot['plot_value'] = for_plot['pseudo_perplexity'] / leaf_value
+            y_leaf = 1.0
+        else:
+            for_plot['plot_value'] = for_plot['pseudo_perplexity']
+            y_leaf = leaf_value
+
+        x_leaf = calc_branch_length_to_root_leaf(tree, leaf_name)
+
+        # Main line
+        plt.plot(
+            for_plot['bl_to_root'],
+            for_plot['plot_value'],
+            color=color,
+            label=label_name
+        )
+
+        # Invisible marker at leaf
+        plt.scatter(x_leaf, y_leaf, color=color, s=0.1, zorder=10)
+
+        # Line to closest point
+        closest_idx = (for_plot['bl_to_root'] - x_leaf).abs().idxmin()
+        x_closest = for_plot.loc[closest_idx, 'bl_to_root']
+        y_closest = for_plot.loc[closest_idx, 'plot_value']
+
+        plt.plot(
+            [x_leaf, x_closest],
+            [y_leaf, y_closest],
+            color=color
+        )
+
+    # Labels and layout
+    plt.xlabel('Distance to Tree Root (subs/site)')
+    y_label = 'Normalized\nPseudo Perplexity\n(relative to leaf)' if normalize else 'ESM2 Pseudo Perplexity'
+    plt.ylabel(y_label)
+    plt.title(leaf_name)
+    plt.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
+    plt.tight_layout()
+    plt.show()
