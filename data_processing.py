@@ -71,15 +71,25 @@ def plot_evo_path(scores_df, tree, leaf_name, labels = False):
 
     plt.figure(figsize=(16, 4))
 
-    # Scatter plot with color representing ML probability
+    # # Scatter plot with color representing ML probability
+    # scatter = plt.scatter(
+    #     for_plot['bl_to_root'],
+    #     for_plot['pseudo_perplexity'],
+    #     c=for_plot['ML prob'],
+    #     cmap=apc.gradients.viridis.to_mpl_cmap().reversed(),
+    #     marker='o',
+    #     s = 100
+    # )
     scatter = plt.scatter(
-        for_plot['bl_to_root'],
-        for_plot['pseudo_perplexity'],
-        c=for_plot['ML prob'],
-        cmap=apc.gradients.viridis.to_mpl_cmap().reversed(),
-        marker='o',
-        s = 100
-    )
+    for_plot['bl_to_root'],
+    for_plot['pseudo_perplexity'],
+    c=for_plot['ML prob'],
+    cmap=apc.gradients.viridis.to_mpl_cmap().reversed(),
+    marker='o',
+    s=100,
+    vmin=0.77,  # Set to the minimum value you want to standardize on
+    vmax=1   # Set to the maximum value you want to standardize on
+)
 
     #Add labels for each point using the sequence_id
     if labels == True: 
