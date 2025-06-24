@@ -443,3 +443,63 @@ def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
     plt.legend(loc='center left', bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
     plt.tight_layout()
     plt.show()
+
+def violin_plot(orig_input_df, bins, bin_labels, custom_colors):
+    import matplotlib.pyplot as plt
+    import pandas as pd
+    import seaborn as sns
+
+    input_df = orig_input_df.copy()
+
+    # Bin the ML prob values using custom labels
+    input_df['ML_prob_bin'] = pd.cut(
+        input_df['ML prob'],
+        bins=bins,
+        labels=bin_labels,
+        include_lowest=True
+    )
+
+    # Drop rows with missing bin assignments or pseudo_perplexity
+    input_df = input_df.dropna(subset=['ML_prob_bin', 'pseudo_perplexity'])
+
+    # Count samples per bin
+    bin_counts = input_df['ML_prob_bin'].value_counts().sort_index()
+
+    # Calculate medians for each bin
+    group_stats = input_df.groupby('ML_prob_bin', observed=False)['pseudo_perplexity'].agg('median').values
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    sns.violinplot(
+        x='ML_prob_bin',
+        y='pseudo_perplexity',
+        hue='ML_prob_bin',
+        data=input_df,
+        ax=ax,
+        inner=None,
+        cut=0,
+        palette=custom_colors,
+        legend=False
+    )
+
+    # Add horizontal line for medians
+    for i, stat in enumerate(group_stats):
+        ax.plot([i - 0.2, i + 0.2], [stat, stat], color='black', linewidth=2)
+
+    # Labeling
+    ax.set_xlabel('ASR mean posterior probability bin')
+    ax.set_ylabel('ESM2 Pseudo Perplexity')
+    plt.suptitle("")
+
+    # Add group sizes 
+    y_max = ax.get_ylim()[1]
+    y_min = ax.get_ylim()[0]
+    offset = 0.03 * (y_max - y_min)
+
+    for i, (__, count) in enumerate(bin_counts.items()):
+        ax.text(i, y_max - offset, f'n={count}', ha='center', va='top', fontsize=12)
+
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
