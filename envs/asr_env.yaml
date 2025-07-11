@@ -1,0 +1,24 @@
+name: asr
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - biopython
+  - ete3
+  - fasttree
+  - iqtree
+  - itolapi
+  - mafft
+  - modeltest-ng
+  - mmseqs2
+  - paml
+  - pastml
+  - pandas
+  - matplotlib
+  - scipy
+  - logomaker
+  - ipykernel       
+  - jupyter_core     
+  - jupyter_client   

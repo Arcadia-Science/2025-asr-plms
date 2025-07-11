@@ -1,0 +1,23 @@
+name: esm_env
+channels:
+  - nvidia
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pytorch=2.5.1
+  - pytorch-cuda=12.1  
+  - numpy
+  - pandas
+  - biopython
+  - pip
+  - pip:
+      - fair-esm==2.0.0
+      - transformers==4.51.3
+      - tokenizers==0.21.1
+      - tqdm
+      - pyyaml
+      - requests
+      - huggingface-hub

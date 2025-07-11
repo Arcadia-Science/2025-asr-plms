@@ -1,0 +1,29 @@
+name: main_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.13  
+  - biopython=1.85
+  - ete3
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - jupyterlab
+  - ipykernel
+  - ipython
+  - pyqt
+  - lxml
+  - zipp
+  - pip
+  - pip:
+      - plotly
+      - kaleido
+      - beautifulsoup4
+      - soupsieve
+      - colorspacious
+      - arcadia-pycolor==0.6.3
