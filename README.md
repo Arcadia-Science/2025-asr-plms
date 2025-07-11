@@ -25,7 +25,7 @@ The publication is hosted at [this URL]([PUB-URL]).
 
 **Ancestral Sequence Generation**
 
-Ancestral sequences were reconstructed using the workflow in [ASR/ASR_notebook.ipynb](ASR/ASR_notebook.ipynb).  All sequence inputs and outputs are in the [ASR/] directory.
+Ancestral sequences were reconstructed using the workflow in [ASR/ASR_notebook.ipynb](ASR/ASR_notebook.ipynb).  All sequence inputs and outputs are in the [ASR/](ASR/) directory.
 
 **ESM2 Pseudo-perplexity Calculation**
 
