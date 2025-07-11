@@ -31,9 +31,9 @@ Ancestral sequences were reconstructed using the workflow in [ASR/ASR_notebook.i
 
 ESM2 pseudo-perplexity scores were calculated using the [esm2_pppl_calculator.py](esm2_pppl_calculator.py) on a GPU-enable AWS EC2 instance with the following specifications to ensure full reproducibility:
 
-AMI Name: **Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 22.04)**
-Instance Type: **g4dn.2xlarge (NVIDIA T4 GPU, 32 GiB memory)**
-Root Volume Size: **100 GiB**
+AMI Name: **Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 22.04)**  
+Instance Type: **g4dn.2xlarge (NVIDIA T4 GPU, 32 GiB memory)**  
+Root Volume Size: **100 GiB**  
 Storage Type: **EBS (General Purpose SSD, gp3)**
 
 Once launched, set up the Python environment:
