@@ -444,12 +444,21 @@ def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
     plt.tight_layout()
     plt.show()
 
-def violin_plot(orig_input_df, bins, bin_labels, custom_colors):
+def violin_plot(orig_input_df, bins, bin_labels):
     import matplotlib.pyplot as plt
     import pandas as pd
     import seaborn as sns
 
     input_df = orig_input_df.copy()
+
+    custom_colors = {
+    '< 0.8': '#fffdbd',
+    '0.80–0.85': '#9dd07c',
+    '0.85–0.90': '#649bb0',
+    '0.90–0.95': '#446b9f',
+    '0.95–1.00': '#313f65',
+    'extant': '#F28360'
+}
 
     # Bin the ML prob values using custom labels
     input_df['ML_prob_bin'] = pd.cut(
@@ -508,7 +517,7 @@ def kruskal_wallis_with_significant_posthoc(data_df, bins, bin_labels):
     from scipy.stats import kruskal
     import scikit_posthocs as sp
     import pandas as pd
-    
+
     # Bin the ML posterior probabilities
     data_df['ML_prob_bin'] = pd.cut(
         data_df['ML prob'],
