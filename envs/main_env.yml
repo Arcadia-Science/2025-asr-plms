@@ -27,3 +27,5 @@ dependencies:
       - soupsieve
       - colorspacious
       - arcadia-pycolor==0.6.3
+      - scikit-posthocs==0.11.4
+

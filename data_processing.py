@@ -503,3 +503,49 @@ def violin_plot(orig_input_df, bins, bin_labels, custom_colors):
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
+
+def kruskal_wallis_with_significant_posthoc(data_df, bins, bin_labels):
+    from scipy.stats import kruskal
+    import scikit_posthocs as sp
+    import pandas as pd
+    
+    # Bin the ML posterior probabilities
+    data_df['ML_prob_bin'] = pd.cut(
+        data_df['ML prob'],
+        bins=bins,
+        labels=bin_labels,
+        include_lowest=True
+    )
+
+    # Drop missing values
+    data_df = data_df.dropna(subset=['ML_prob_bin', 'pseudo_perplexity'])
+
+    # Group pseudo_perplexity values by bin
+    groups = [group['pseudo_perplexity'].values for _, group in data_df.groupby('ML_prob_bin', observed=False)]
+
+    # Kruskal-Wallis test
+    H, p = kruskal(*groups)
+    print(f"Kruskal-Wallis test result: H = {H:.3f}, p = {p:.3e}\n")
+
+    # Dunn's post hoc test with Bonferroni correction
+    posthoc = sp.posthoc_dunn(data_df, val_col='pseudo_perplexity', group_col='ML_prob_bin', p_adjust='bonferroni')
+
+    # Find significant pairs (p < 0.05)
+    sig_pairs = []
+    bins_list = list(bin_labels)
+    for i, g1 in enumerate(bins_list):
+        for j, g2 in enumerate(bins_list):
+            if i < j:  # upper triangle only
+                pval = posthoc.loc[g1, g2]
+                if pval < 0.05:
+                    sig_pairs.append((g1, g2, pval))
+
+    # Print significant comparisons in table format
+    if sig_pairs:
+        print("Significant Dunn post hoc comparisons (adjusted p < 0.05):")
+        print(f"{'Group 1':<12} {'Group 2':<12} {'Adj. p-value':<12}")
+        print("-" * 38)
+        for g1, g2, pval in sig_pairs:
+            print(f"{g1:<12} {g2:<12} {pval:<12.3e}")
+    else:
+        print("No significant pairwise differences found in post hoc test.")
