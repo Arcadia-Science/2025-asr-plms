@@ -41,6 +41,7 @@ python esm2_pppl_calculator.py --input consensus_ADA1_ancestors.fa --output cons
 ```
 
 **Main Analysis Notebook**
+
 The main analysis is performed in the [index.ipynb](index.ipynb) notebook. This notebook contains all the code to generate the figures and tables in the publication.
 
 To run the notebook, you will need to create an environment from the provided [main_env.yml](envs/main_env.yml) file:
