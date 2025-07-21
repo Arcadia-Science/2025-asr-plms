@@ -1,31 +1,52 @@
 #!/usr/bin/env python3
 """
-Script to calculate both standard perplexity and pseudo perplexity scores for protein sequences using ESM-2.
+Script to calculate both standard perplexity and pseudo perplexity scores
+for protein sequences using ESM-2.
 """
 
 import argparse
 import os
-import torch
+import time
+from concurrent.futures import ThreadPoolExecutor
+
 import esm
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
+import torch
 from Bio import SeqIO
-from concurrent.futures import ThreadPoolExecutor
-import time
+from tqdm import tqdm
+
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Calculate standard and pseudo perplexity scores for protein sequences using ESM-2')
-    parser.add_argument('--input', required=True, help='Input FASTA file with protein sequences')
-    parser.add_argument('--output', required=True, help='Output CSV file for results')
-    parser.add_argument('--model', default='esm2_t33_650M_UR50D', help='ESM-2 model to use')
-    parser.add_argument('--batch_size', type=int, default=4, help='Batch size for inference')
-    parser.add_argument('--mask_batch_size', type=int, default=32, help='Batch size for masked inference')
-    parser.add_argument('--device', default='cuda:0' if torch.cuda.is_available() else 'cpu', help='Device to run on')
-    parser.add_argument('--no_pll', action='store_true', help='Skip pseudo perplexity calculation (much faster)')
-    parser.add_argument('--max_seq_len', type=int, default=None, help='Maximum sequence length to process (for chunking)')
-    parser.add_argument('--workers', type=int, default=1, help='Number of worker threads for data preprocessing')
+    parser = argparse.ArgumentParser(
+        description="Calculate standard and pseudo perplexity scores for protein sequences using ESM-2"
+    )
+    parser.add_argument("--input", required=True, help="Input FASTA file with protein sequences")
+    parser.add_argument("--output", required=True, help="Output CSV file for results")
+    parser.add_argument("--model", default="esm2_t33_650M_UR50D", help="ESM-2 model to use")
+    parser.add_argument("--batch_size", type=int, default=4, help="Batch size for inference")
+    parser.add_argument(
+        "--mask_batch_size", type=int, default=32, help="Batch size for masked inference"
+    )
+    parser.add_argument(
+        "--device",
+        default="cuda:0" if torch.cuda.is_available() else "cpu",
+        help="Device to run on",
+    )
+    parser.add_argument(
+        "--no_pll", action="store_true", help="Skip pseudo perplexity calculation (much faster)"
+    )
+    parser.add_argument(
+        "--max_seq_len",
+        type=int,
+        default=None,
+        help="Maximum sequence length to process (for chunking)",
+    )
+    parser.add_argument(
+        "--workers", type=int, default=1, help="Number of worker threads for data preprocessing"
+    )
     return parser.parse_args()
+
 
 def calculate_perplexity(model, batch_converter, sequences, device, batch_size):
     """Calculate standard perplexity for a list of protein sequences using ESM-2."""
@@ -33,7 +54,7 @@ def calculate_perplexity(model, batch_converter, sequences, device, batch_size):
 
     # Process in batches
     for i in range(0, len(sequences), batch_size):
-        batch = sequences[i:i+batch_size]
+        batch = sequences[i : i + batch_size]
         batch_labels, batch_strs, batch_tokens = batch_converter(batch)
         batch_tokens = batch_tokens.to(device)
 
@@ -45,27 +66,32 @@ def calculate_perplexity(model, batch_converter, sequences, device, batch_size):
             # Calculate token likelihoods
             for seq_idx, (seq_label, seq) in enumerate(batch):
                 seq_len = len(seq)
-                token_probs = torch.log_softmax(logits[seq_idx, 1:seq_len+1], dim=-1)
+                token_probs = torch.log_softmax(logits[seq_idx, 1 : seq_len + 1], dim=-1)
 
                 # Extract the probability of the target token at each position
-                target_indices = batch_tokens[seq_idx, 1:seq_len+1]
-                token_log_probs = torch.gather(token_probs, 1, target_indices.unsqueeze(1)).squeeze(1)
+                target_indices = batch_tokens[seq_idx, 1 : seq_len + 1]
+                token_log_probs = torch.gather(token_probs, 1, target_indices.unsqueeze(1)).squeeze(
+                    1
+                )
 
                 # Calculate mean log probability and perplexity
                 mean_log_prob = token_log_probs.mean().item()
                 seq_perplexity = np.exp(-mean_log_prob)
 
                 # Store in results
-                results.append({
-                    'sequence_id': seq_label,
-                    'sequence': seq,
-                    'length': seq_len,
-                    'mean_log_prob': mean_log_prob,
-                    'perplexity': seq_perplexity,
-                    'token_log_probs': token_log_probs.cpu().numpy().tolist()
-                })
+                results.append(
+                    {
+                        "sequence_id": seq_label,
+                        "sequence": seq,
+                        "length": seq_len,
+                        "mean_log_prob": mean_log_prob,
+                        "perplexity": seq_perplexity,
+                        "token_log_probs": token_log_probs.cpu().numpy().tolist(),
+                    }
+                )
 
     return results
+
 
 def prepare_masked_batches(sequences, mask_token, max_batch_size=32):
     """Prepare batches of masked sequences efficiently."""
@@ -93,6 +119,7 @@ def prepare_masked_batches(sequences, mask_token, max_batch_size=32):
             all_batches.append(masked_batch)
 
     return all_batches
+
 
 def process_masked_batch(model, batch_converter, masked_batch, device, alphabet, original_seqs):
     """Process a batch of masked sequences and return position-wise log probabilities."""
@@ -141,7 +168,17 @@ def process_masked_batch(model, batch_converter, masked_batch, device, alphabet,
 
     return results
 
-def calculate_pseudo_perplexity(model, batch_converter, alphabet, sequences, device, mask_batch_size, workers=1, max_seq_len=None):
+
+def calculate_pseudo_perplexity(
+    model,
+    batch_converter,
+    alphabet,
+    sequences,
+    device,
+    mask_batch_size,
+    workers=1,
+    max_seq_len=None,
+):
     """
     Optimized version of pseudo perplexity calculation using batched processing and multi-threading.
     """
@@ -152,7 +189,10 @@ def calculate_pseudo_perplexity(model, batch_converter, alphabet, sequences, dev
             if len(seq) <= max_seq_len:
                 filtered_sequences.append((seq_id, seq))
             else:
-                print(f"Warning: Sequence {seq_id} exceeds max length ({len(seq)} > {max_seq_len}), processing first {max_seq_len} residues")
+                print(
+                    f"Warning: Sequence {seq_id} exceeds max length ({len(seq)} > {max_seq_len}),\
+                    processing first {max_seq_len} residues"
+                )
                 filtered_sequences.append((seq_id, seq[:max_seq_len]))
         sequences = filtered_sequences
 
@@ -166,7 +206,7 @@ def calculate_pseudo_perplexity(model, batch_converter, alphabet, sequences, dev
 
     # Divide sequences among workers
     chunk_size = max(1, len(sequences) // workers)
-    sequence_chunks = [sequences[i:i+chunk_size] for i in range(0, len(sequences), chunk_size)]
+    sequence_chunks = [sequences[i : i + chunk_size] for i in range(0, len(sequences), chunk_size)]
 
     all_masked_batches = []
     if workers > 1:
@@ -183,7 +223,9 @@ def calculate_pseudo_perplexity(model, batch_converter, alphabet, sequences, dev
     position_scores = {}
 
     for batch in tqdm(all_masked_batches, desc="Calculating pseudo perplexity"):
-        batch_results = process_masked_batch(model, batch_converter, batch, device, alphabet, sequences)
+        batch_results = process_masked_batch(
+            model, batch_converter, batch, device, alphabet, sequences
+        )
 
         # Update position_scores with batch results
         for seq_id, pos_scores in batch_results.items():
@@ -225,6 +267,7 @@ def calculate_pseudo_perplexity(model, batch_converter, alphabet, sequences, dev
 
     return results_with_pseudo
 
+
 def main(args):
     start_total = time.time()
     print(f"Loading ESM-2 model: {args.model}")
@@ -247,7 +290,9 @@ def main(args):
     print("Calculating standard perplexity...")
     start_time = time.time()
     global standard_results
-    standard_results = calculate_perplexity(model, batch_converter, sequences, args.device, args.batch_size)
+    standard_results = calculate_perplexity(
+        model, batch_converter, sequences, args.device, args.batch_size
+    )
     print(f"Standard perplexity calculation completed in {time.time() - start_time:.2f} seconds")
 
     # Optionally calculate pseudo perplexity
@@ -255,8 +300,14 @@ def main(args):
         print("Calculating pseudo perplexity (this will take longer)...")
         start_time = time.time()
         results_with_pseudo = calculate_pseudo_perplexity(
-            model, batch_converter, alphabet, sequences, args.device,
-            args.mask_batch_size, args.workers, args.max_seq_len
+            model,
+            batch_converter,
+            alphabet,
+            sequences,
+            args.device,
+            args.mask_batch_size,
+            args.workers,
+            args.max_seq_len,
         )
         print(f"Pseudo perplexity calculation completed in {time.time() - start_time:.2f} seconds")
 
@@ -268,24 +319,34 @@ def main(args):
     # Save results to CSV
     print("Saving results...")
     if args.no_pll:
-        df = pd.DataFrame([{
-            'sequence_id': r['sequence_id'],
-            'sequence': r['sequence'],
-            'length': r['length'],
-            'perplexity': r['perplexity'],
-            'mean_log_prob': r['mean_log_prob']
-        } for r in final_results])
+        df = pd.DataFrame(
+            [
+                {
+                    "sequence_id": r["sequence_id"],
+                    "sequence": r["sequence"],
+                    "length": r["length"],
+                    "perplexity": r["perplexity"],
+                    "mean_log_prob": r["mean_log_prob"],
+                }
+                for r in final_results
+            ]
+        )
     else:
-        df = pd.DataFrame([{
-            'sequence_id': r['sequence_id'],
-            'sequence': r['sequence'],
-            'length': r['length'],
-            'perplexity': r['perplexity'],
-            'mean_log_prob': r['mean_log_prob'],
-            'pseudo_perplexity': r.get('pseudo_perplexity'),
-            'mean_pll': r.get('mean_pll'),
-            'pll': r.get('pll')
-        } for r in final_results])
+        df = pd.DataFrame(
+            [
+                {
+                    "sequence_id": r["sequence_id"],
+                    "sequence": r["sequence"],
+                    "length": r["length"],
+                    "perplexity": r["perplexity"],
+                    "mean_log_prob": r["mean_log_prob"],
+                    "pseudo_perplexity": r.get("pseudo_perplexity"),
+                    "mean_pll": r.get("mean_pll"),
+                    "pll": r.get("pll"),
+                }
+                for r in final_results
+            ]
+        )
 
     df.to_csv(args.output, index=False)
     print(f"Results saved to {args.output}")
@@ -296,15 +357,17 @@ def main(args):
         os.makedirs(detailed_dir, exist_ok=True)
 
         for result in final_results:
-            seq_id = result['sequence_id']
-            seq = result['sequence']
+            seq_id = result["sequence_id"]
+            seq = result["sequence"]
 
-            df_detailed = pd.DataFrame({
-                'position': list(range(1, len(seq) + 1)),
-                'amino_acid': list(seq),
-                'log_prob': result['token_log_probs'],
-                'pll_log_prob': result.get('pll_token_probs', [0] * len(seq))
-            })
+            df_detailed = pd.DataFrame(
+                {
+                    "position": list(range(1, len(seq) + 1)),
+                    "amino_acid": list(seq),
+                    "log_prob": result["token_log_probs"],
+                    "pll_log_prob": result.get("pll_token_probs", [0] * len(seq)),
+                }
+            )
 
             df_detailed.to_csv(f"{detailed_dir}/{seq_id}.csv", index=False)
 
@@ -315,16 +378,20 @@ def main(args):
     print("-----------------------------")
     if args.no_pll:
         print(f"{'Sequence ID':<20} {'Length':<8} {'Perplexity':<12}")
-        print(f"{'-'*20} {'-'*8} {'-'*12}")
+        print(f"{'-' * 20} {'-' * 8} {'-' * 12}")
         for r in final_results:
             print(f"{r['sequence_id']:<20} {r['length']:<8} {r['perplexity']:<12.2f}")
     else:
         print(f"{'Sequence ID':<20} {'Length':<8} {'Perplexity':<12} {'Pseudo Perplexity':<18}")
-        print(f"{'-'*20} {'-'*8} {'-'*12} {'-'*18}")
+        print(f"{'-' * 20} {'-' * 8} {'-' * 12} {'-' * 18}")
         for r in final_results:
-            print(f"{r['sequence_id']:<20} {r['length']:<8} {r['perplexity']:<12.2f} {r.get('pseudo_perplexity', 0):<18.2f}")
+            print(
+                f"{r['sequence_id']:<20} {r['length']:<8} {r['perplexity']:<12.2f}\
+                    {r.get('pseudo_perplexity', 0):<18.2f}"
+            )
 
     print(f"\nTotal execution time: {time.time() - start_total:.2f} seconds")
+
 
 if __name__ == "__main__":
     args = parse_args()
