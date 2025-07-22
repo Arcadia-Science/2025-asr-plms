@@ -40,16 +40,6 @@ Calculate pseudo-perplexity scores using ESM2:
 python esm2_pppl_calculator.py --input consensus_ADA1_ancestors.fa --output consensus_ADA1_ancestors_scores.csv --model esm2_t33_650M_UR50D 
 ```
 
-**Main Analysis Notebook**
-
-The main analysis is performed in the [index.ipynb](index.ipynb) notebook. This notebook contains all the code to generate the figures and tables in the publication.
-
-To run the notebook, you will need to create an environment from the provided [main_env.yml](envs/main_env.yml) file:
-```bash
-conda env create -n asr_plm_env -f main_env.yml
-conda activate asr_plm_env
-```
-
 ## Reproduce
 
 Please see [SETUP.qmd](SETUP.qmd).
