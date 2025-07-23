@@ -19,7 +19,9 @@ from tqdm import tqdm
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Calculate standard and pseudo perplexity scores for protein sequences using ESM-2"
+        description=(
+            "Calculate standard and pseudo perplexity scores for protein sequences using ESM-2"
+        )
     )
     parser.add_argument("--input", required=True, help="Input FASTA file with protein sequences")
     parser.add_argument("--output", required=True, help="Output CSV file for results")
