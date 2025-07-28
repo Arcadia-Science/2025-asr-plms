@@ -94,11 +94,11 @@ def plot_evo_path(scores_df, tree, leaf_name, labels=False):
     plt.scatter(x, y, color="#F28360", label="Leaf", zorder=10, s=100)
 
     # Add colorbar
-    plt.colorbar(scatter, label="ASR Mean Posterior Probability")
+    plt.colorbar(scatter, label="ASR mean posterior probability")
 
     # Labels and layout
-    plt.xlabel("Distance to Tree Root (subs/site)")
-    plt.ylabel("ESM2 Pseudo Perplexity")
+    plt.xlabel("Distance to tree root (subs/site)")
+    plt.ylabel("ESM2 pseudo perplexity")
     plt.title(leaf_name)
     plt.tight_layout()
     plt.show()
@@ -317,7 +317,7 @@ def generate_node_consensus(tree, node_num, alignment_file, name_conv_dict, gap_
     return make_consensus(sequences, gap_profile)
 
 
-def plot_evo_path_quiver(scores_df, tree, leaf_name):
+def plot_evo_path_quiver(scores_df, tree, leaf_name, legend_loc = None):
     these_nodes = get_node_labels_leaf_to_root(tree, leaf_name)
 
     # Subset the relevant data
@@ -380,12 +380,14 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name):
     plt.scatter(x_leaf, y_leaf, color="#F28360", label="Leaf", zorder=10, s=80)
 
     # Labels and layout
-    plt.xlabel("Distance to Tree Root (subs/site)")
-    plt.ylabel("ESM2 Pseudo Perplexity")
+    plt.xlabel("Distance to tree root (subs/site)")
+    plt.ylabel("ESM2 pseudo perplexity")
     plt.title(leaf_name)
     plt.scatter([], [], color="#73B5E3", label="ML ancestor lower pppl", marker="^")
     plt.scatter([], [], color="#F7B846", label="Consensus ancestor lower pppl", marker="v")
-    plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
+    #plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
+    if legend_loc:
+        plt.legend(loc = legend_loc)
     plt.show()
 
 
@@ -438,11 +440,11 @@ def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
         plt.plot([x_leaf, x_closest], [y_leaf, y_closest], color=color)
 
     # Labels and layout
-    plt.xlabel("Distance to Tree Root (subs/site)")
+    plt.xlabel("Distance to tree root (subs/site)")
     y_label = (
-        "Normalized\nPseudo Perplexity\n(relative to leaf)"
+        "Normalized\npseudo perplexity\n(relative to leaf)"
         if normalize
-        else "ESM2 Pseudo Perplexity"
+        else "ESM2 pseudo perplexity"
     )
     plt.ylabel(y_label)
     plt.title(leaf_name)
@@ -500,7 +502,7 @@ def violin_plot(orig_input_df, bins, bin_labels):
 
     # Labeling
     ax.set_xlabel("ASR mean posterior probability bin")
-    ax.set_ylabel("ESM2 Pseudo Perplexity")
+    ax.set_ylabel("ESM2 pseudo perplexity")
     plt.suptitle("")
 
     # Add group sizes
