@@ -98,7 +98,7 @@ def plot_evo_path(scores_df, tree, leaf_name, labels=False):
 
     # Labels and layout
     plt.xlabel("Distance to tree root (subs/site)")
-    plt.ylabel("ESM2 pseudo perplexity")
+    plt.ylabel("ESM2 pseudo-perplexity")
     plt.title(leaf_name)
     plt.tight_layout()
     plt.show()
@@ -381,7 +381,7 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name, legend_loc = None):
 
     # Labels and layout
     plt.xlabel("Distance to tree root (subs/site)")
-    plt.ylabel("ESM2 pseudo perplexity")
+    plt.ylabel("ESM2 pseudo-perplexity")
     plt.title(leaf_name)
     plt.scatter([], [], color="#73B5E3", label="ML ancestor lower pppl", marker="^")
     plt.scatter([], [], color="#F7B846", label="Consensus ancestor lower pppl", marker="v")
@@ -396,7 +396,7 @@ def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
     Parameters:
         score_dfs_leaves_labels: list of tuples (scores_df, leaf_name, label_name)
         tree: Phylogenetic tree used to compute distances
-        normalize: whether to normalize pseudo perplexity to the leaf value
+        normalize: whether to normalize pseudo-perplexity to the leaf value
     """
     plt.figure(figsize=(18, 3))
 
@@ -442,9 +442,9 @@ def plot_multiple_evo_lines(score_dfs_leaves_labels, tree, normalize=True):
     # Labels and layout
     plt.xlabel("Distance to tree root (subs/site)")
     y_label = (
-        "Normalized\npseudo perplexity\n(relative to leaf)"
+        "Normalized\npseudo-perplexity\n(relative to leaf)"
         if normalize
-        else "ESM2 pseudo perplexity"
+        else "ESM2 pseudo-perplexity"
     )
     plt.ylabel(y_label)
     plt.title(leaf_name)
@@ -462,7 +462,7 @@ def violin_plot(orig_input_df, bins, bin_labels):
         "0.85–0.90": "#649bb0",
         "0.90–0.95": "#446b9f",
         "0.95–1.00": "#313f65",
-        "extant": "#F28360",
+        "Extant": "#F28360",
     }
 
     # Bin the ML prob values using custom labels
@@ -502,7 +502,7 @@ def violin_plot(orig_input_df, bins, bin_labels):
 
     # Labeling
     ax.set_xlabel("ASR mean posterior probability bin")
-    ax.set_ylabel("ESM2 pseudo perplexity")
+    ax.set_ylabel("ESM2 pseudo-perplexity")
     plt.suptitle("")
 
     # Add group sizes
@@ -511,7 +511,7 @@ def violin_plot(orig_input_df, bins, bin_labels):
     offset = 0.03 * (y_max - y_min)
 
     for i, (__, count) in enumerate(bin_counts.items()):
-        ax.text(i, y_max - offset, f"n={count}", ha="center", va="top", fontsize=12)
+        ax.text(i, y_max - offset, f"n = {count}", ha="center", va="top", fontsize=12)
 
     plt.xticks(rotation=45)
     plt.tight_layout()
