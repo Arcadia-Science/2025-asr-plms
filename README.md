@@ -1,9 +1,9 @@
 
 # Exploring ESM2 Pseudo-perplexity of Maximum Likelihood Ancestral Protein Sequences
 
-This code repository contains or points to all materials required for creating and hosting the publication entitled, *"[PUB-TITLE]"*.
+This code repository contains or points to all materials required for creating and hosting the publication entitled, *"[Do protein language models understand evolution?  Mixed evidence from ancestral sequences and ESM2.]"*.
 
-The publication is hosted at [this URL]([PUB-URL]).
+The publication is hosted at [this URL]([https://arcadia-science.github.io/2025-asr-plms/]).
 
 ## Data Description
 
