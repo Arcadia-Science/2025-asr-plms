@@ -1,4 +1,4 @@
-name: test_asr_pub
+name: asr_env
 channels:
   - conda-forge
   - bioconda

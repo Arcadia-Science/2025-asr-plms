@@ -1,4 +1,4 @@
-name: esm_env
+name: esm2_env
 channels:
   - nvidia
   - pytorch
