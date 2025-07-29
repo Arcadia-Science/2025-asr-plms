@@ -8,14 +8,10 @@ This README details how we calculated the ASR sequences in the pub. Alignment wa
 
 ## Setup
 
-Install Miniconda:
-```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh
-source ~/.bashrc
-```
+This repository uses conda to manage the computational and build environment. If you don’t have it installed (check with `conda --version`), you can find operating system-specific instructions for installing miniconda [here](https://www.anaconda.com/docs/getting-started/miniconda/main). After installing, run the following commands to create and activate the environment.
 
-Create the Conda environment from the provided [../envs/asr_env.yml](../envs/asr_env.yml) file:
+Create the environment from the provided [asr_env.yml](./asr_env.yml) file:
+
 ```bash
 conda env create -n asr_env -f asr_env.yml
 conda activate asr_env
@@ -23,34 +19,45 @@ conda activate asr_env
 
 ## Reproduce
 
-### Data 
-(1) Fasta file of input sequences including known outgroup sequence(s)
+This publication uses ASR on both ADA1 and Isomaltase. The inputs/ouputs for each are found in `ADA1_ASR/` and `Isomaltase_ASR/`, respectively.
 
-(2) Text file with seq ids for outgroup sequences
+To reproduce the ASR analysis for ADA1, run:
 
-### Ancestral Sequence Reconstruction
+```bash
+papermill ASR_notebook.ipynb ASR_notebook_ADA1.ipynb -p outgroup asdfasdf -p asdfasdf - asdfasdf
+```
 
-Update second cell in ASR_notebook.ipynb with path to input sequences and outgroup name files.  Run all to run the whole notebook.
+The output notebook will be written to `ASR_notebook_ADA1.ipynb`.
+
+To reproduce the ASR analysis for Isomaltase, run:
+
+```bash
+papermill ASR_notebook.ipynb ASR_notebook_ADA1.ipynb -p outgroup asdfasdf -p asdfasdf - asdfasdf
+```
+
+The output notebook will be written to `ASR_notebook_Isomaltase.ipynb`.
+
+## Data Description
 
 Visualize ancestor_tree in FigTree or other tree viewing software to get ancestral node numbers of interest, or can visualize in the notebook directly.
 
 Key output files:
-ancestor_tree.txt: phylogenetic tree of input sequences with ancestral nodes labelled
-ML_ancestors.fa: final ML sequences for all ancestral nodes
-posterior_probabilities.json: probabilities of all 20 amino acids at every position for all ancestors
 
+* **ancestor_tree.txt**: phylogenetic tree of input sequences with ancestral nodes labelled
+* **ML_ancestors.fa**: final ML sequences for all ancestral nodes
+* **posterior_probabilities.json**: probabilities of all 20 amino acids at every position for all ancestors
 
 Other output files:
-recoding_dict.txt: key for recoding of sequences to meet PAML 10 character seq id limit
-ancestor_cladogram.txt: cladogram of input sequences with ancestral nodes labelled
-ancestor_recoded_cladogram.txt: cladogram of input sequences recoded for paml
-ancestor_recoded_tree.txt: phylogenetic tree of input sequences recoded for paml
-codeml.ctl: config file for codeml, written by notebook from example file
-ML_ancestors_with_gaps.fa: ML sequences for all ancestral nodes before removing gaps with DOWNPASS
-posterior_probabilities_no_gaps.json: probabilities of all 20 amino acids at every position for all ancestors before gaps removed
-rst: raw paml output file parsed by the notebook to generate all other output files
 
+* **recoding_dict.txt**: key for recoding of sequences to meet PAML 10 character seq id limit
+* **ancestor_cladogram.txt**: cladogram of input sequences with ancestral nodes labelled
+* **ancestor_recoded_cladogram.txt**: cladogram of input sequences recoded for paml
+ancestor_recoded_tree.txt: phylogen* **ancestor_recoded_cladogram.txt**etic tree of input sequences recoded for paml
+* **codeml.ctl**: config file for codeml, written by notebook from example file
+* **ML_ancestors_with_gaps.fa**: ML sequences for all ancestral nodes before removing gaps with DOWNPASS
+* **posterior_probabilities_no_gaps.json**: probabilities of all 20 amino acids at every position for all ancestors before gaps removed
+* **rst**: raw paml output file parsed by the notebook to generate all other output files
 
-### Compute Specifications
+## Compute Specifications
 
-Run locally on macOS (osx64) with 36 GM RAM and no paralellization. 
+This was run locally on macOS (osx64) with 36 GM RAM.
