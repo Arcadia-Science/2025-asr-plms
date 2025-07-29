@@ -42,6 +42,9 @@ python esm2_pppl_calculator.py --input ../ASR/ADA1_ASR/outputs/consensus_ADA1_an
 
 ## Reproduce
 
+To reproduce the ESM2 pseudo-perplexity scores for the ADA1 and isomaltase sequences, run the following commands:
+
+```bash
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_650M.csv --model esm2_t33_650M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_8M.csv --model esm2_t6_8M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_35M.csv --model esm2_t12_35M_UR50D 
@@ -59,3 +62,4 @@ python esm2_pppl_calculator.py --input isomaltase_native_and_anc.fasta --output 
 
 python esm2_pppl_calculator.py --input ADA1_remaining.fasta --output ADA1_remaining_esm2_scores_650M --model esm2_t33_650M_UR50D
 python esm2_pppl_calculator.py --input isomaltase_remaining.fasta --output isomaltase_remaining_esm2_scores_650M --model esm2_t33_650M_UR50D
+```
