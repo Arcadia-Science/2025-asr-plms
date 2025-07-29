@@ -317,7 +317,7 @@ def generate_node_consensus(tree, node_num, alignment_file, name_conv_dict, gap_
     return make_consensus(sequences, gap_profile)
 
 
-def plot_evo_path_quiver(scores_df, tree, leaf_name, legend_loc = None):
+def plot_evo_path_quiver(scores_df, tree, leaf_name, legend_loc=None):
     these_nodes = get_node_labels_leaf_to_root(tree, leaf_name)
 
     # Subset the relevant data
@@ -385,9 +385,9 @@ def plot_evo_path_quiver(scores_df, tree, leaf_name, legend_loc = None):
     plt.title(leaf_name)
     plt.scatter([], [], color="#73B5E3", label="ML ancestor lower pppl", marker="^")
     plt.scatter([], [], color="#F7B846", label="Consensus ancestor lower pppl", marker="v")
-    #plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
+    # plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), borderaxespad=0)
     if legend_loc:
-        plt.legend(loc = legend_loc)
+        plt.legend(loc=legend_loc)
     plt.show()
 
 
