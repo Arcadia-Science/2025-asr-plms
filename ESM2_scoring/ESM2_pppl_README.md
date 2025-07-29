@@ -1,4 +1,4 @@
-# 2025-asr
+# ESM2 Scoring
 
 [![run with conda](https://img.shields.io/badge/run%20with-conda-3EB049?labelColor=000000&logo=anaconda)](https://docs.conda.io/projects/miniconda/en/latest/)
 
