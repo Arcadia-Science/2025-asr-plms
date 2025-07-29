@@ -1,5 +1,5 @@
 
-# Exploring ESM2 Pseudo-perplexity of Maximum Likelihood Ancestral Protein Sequences
+# Do protein language models understand evolution? Mixed evidence from ancestral sequences and ESM2.
 
 This code repository contains or points to all materials required for creating and hosting the publication entitled, *"[Do protein language models understand evolution?  Mixed evidence from ancestral sequences and ESM2.]"*.
 

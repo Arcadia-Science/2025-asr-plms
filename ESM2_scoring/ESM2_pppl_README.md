@@ -5,7 +5,7 @@
 
 ## Purpose
 
-Code for calculating ESM2 pseudo-perplexity scores for protein sequences.
+Code for calculating ESM2 pseudo-perplexity scores for protein sequence for different ESM2 models.
 
 ## Installation and Setup
 
