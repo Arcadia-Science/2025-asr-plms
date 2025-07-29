@@ -3,7 +3,7 @@
 
 This code repository contains or points to all materials required for creating and hosting the publication entitled, *"Do protein language models understand evolution?  Mixed evidence from ancestral sequences and ESM2."*.
 
-The publication is hosted at [this URL]([https://arcadia-science.github.io/2025-asr-plms/]).
+The publication is hosted at [this URL](https://arcadia-science.github.io/2025-asr-plms/).
 
 ## Data Description
 
