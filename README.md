@@ -1,29 +1,19 @@
-# Notebook Publication Template
 
-This repo is a template for Jupyter notebook publications. The template produces a publication rendered and hosted by Quarto, which can be viewed at [this demo URL](https://arcadia-science.github.io/notebook-pub-template/).
+# Do protein language models understand evolution? Mixed evidence from ancestral sequences and ESM2.
 
-## Template Documentation
+This code repository contains or points to all materials required for creating and hosting the publication entitled, *"Do protein language models understand evolution? Mixed evidence from ancestral sequences and ESM2."*.
 
-All the learning resources for this template can be found in `developer-docs/`.
-
-- [Quickstart Guide](developer-docs/QUICKSTART.md) - **The most efficient way to get started** is to follow this guide (the rest can wait)
-- [Environment Setup Guide](developer-docs/ENVIRONMENT_SETUP.md) - How to set up your development environment
-- [Publishing Guide](developer-docs/PUBLISHING_GUIDE.md) - How to publish your notebook publication
-- [Template Architecture](developer-docs/TEMPLATE_ARCHITECTURE.md) - Understanding the template's structure
-
----
-
-**NOTE: When ready to publish, fill in the information below, then delete this line and everything above it.**
-
-# [PUB-TITLE]
-
-This code repository contains or points to all materials required for creating and hosting the publication entitled, *"[PUB-TITLE]"*.
-
-The publication is hosted at [this URL]([PUB-URL]).
+The publication is hosted at [this URL](https://arcadia-science.github.io/2025-asr-plms/).
 
 ## Data Description
 
-[DESCRIPTION OF THE DATA]
+**Ancestral Sequence Generation**
+
+Ancestral sequences were reconstructed using the workflow in [ASR/ASR_notebook.ipynb](ASR/ASR_notebook.ipynb). All sequence inputs and outputs are in the [ASR/](ASR/) directory.
+
+**ESM2 Pseudo-perplexity Calculation**
+
+ESM2 pseudo-perplexity scores were calculated using [ESM2_scoring/esm2_pppl_calculator.py](ESM2_scoring/esm2_pppl_calculator.py) on a GPU-enable AWS EC2 instance. All inputs and outputs are in the [ESM2_scoring/](ESM2_scoring/) directory.
 
 ## Reproduce
 
