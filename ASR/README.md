@@ -24,7 +24,7 @@ This publication uses ASR on both ADA1 and Isomaltase. The inputs/ouputs for eac
 To reproduce the ASR analysis for ADA1, run:
 
 ```bash
-papermill ASR_notebook.ipynb ASR_notebook_ADA1.ipynb -p outgroup asdfasdf -p asdfasdf - asdfasdf
+papermill ASR_notebook.ipynb ASR_notebook_ADA1.ipynb -p input_fasta ADA1_ASR/inputs/ADA1_curated_022525_under420.fa -p outgroup_path ADA1_ASR/inputs/outgroup_names.txt
 ```
 
 The output notebook will be written to `ASR_notebook_ADA1.ipynb`.
@@ -32,18 +32,18 @@ The output notebook will be written to `ASR_notebook_ADA1.ipynb`.
 To reproduce the ASR analysis for Isomaltase, run:
 
 ```bash
-papermill ASR_notebook.ipynb ASR_notebook_ADA1.ipynb -p outgroup asdfasdf -p asdfasdf - asdfasdf
+papermill ASR_notebook.ipynb ASR_notebook_Isomaltase.ipynb -p input_fasta Isomaltase_ASR/inputs/isomaltase_dereplicated_final.fa -p outgroup_path Isomaltase_ASR/inputs/outgroup_names.txt
 ```
 
 The output notebook will be written to `ASR_notebook_Isomaltase.ipynb`.
 
-## Data Description
+**Note** When finalizing the publication, we realized that the ASR workflow is non-deterministic because IQ-TREE uses a stochastic hill-climbing algorithm for tree search. The results presented in the paper were run with an unknown seed, so can't be reproduced exactly. If you are interested in fixing a seed, you can add a `-seed 1234` parameter to each `iqtree2` subprocess call in `ASR_notebook.ipynb`.
 
-Visualize ancestor_tree in FigTree or other tree viewing software to get ancestral node numbers of interest, or can visualize in the notebook directly.
+## Data Description
 
 Key output files:
 
-* **ancestor_tree.txt**: phylogenetic tree of input sequences with ancestral nodes labelled
+* **ancestor_tree.txt**: phylogenetic tree of input sequences with ancestral nodes labelled. You can visualize in FigTree or other tree viewing software to get ancestral node numbers of interest, or can visualize in the notebooks directly.
 * **ML_ancestors.fa**: final ML sequences for all ancestral nodes
 * **posterior_probabilities.json**: probabilities of all 20 amino acids at every position for all ancestors
 
