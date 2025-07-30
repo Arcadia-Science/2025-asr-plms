@@ -8,6 +8,7 @@ import argparse
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
 import esm
 import numpy as np
@@ -350,6 +351,7 @@ def main(args):
             ]
         )
 
+    Path(args.output).parent.mkdir(exist_ok=True, parents=True)
     df.to_csv(args.output, index=False)
     print(f"Results saved to {args.output}")
 
