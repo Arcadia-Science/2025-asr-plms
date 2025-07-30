@@ -45,13 +45,13 @@ python esm2_pppl_calculator.py --input ../ASR/ADA1_ASR/outputs/consensus_ADA1_an
 To reproduce the ESM2 pseudo-perplexity scores for the ADA1 and isomaltase sequences, run the following commands:
 
 ```bash
-python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_650M.csv --model esm2_t33_650M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_8M.csv --model esm2_t6_8M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_35M.csv --model esm2_t12_35M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_150M.csv --model esm2_t30_150M_UR50D 
+python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_650M.csv --model esm2_t33_650M_UR50D 
 python esm2_pppl_calculator.py --input ADA1_native_and_anc.fasta --output ADA1_all_esm2_scores_3B.csv --model esm2_t36_3B_UR50D 
 
-python esm2_pppl_calculator.py --input consensus_ancestors/consensus_ADA1_ancestors.fa --output consensus_ADA1_ancestors_esm2_scores_650M.csv.csv --model esm2_t33_650M_UR50D 
+python esm2_pppl_calculator.py --input consensus_ancestors/consensus_ADA1_ancestors.fa --output consensus_ADA1_ancestors_esm2_scores_650M.csv --model esm2_t33_650M_UR50D 
 python esm2_pppl_calculator.py --input consensus_ancestors/consensus_isomaltase_ancestors.fa --output consensus_isomaltase_ancestors_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
 
 python esm2_pppl_calculator.py --input isomaltase_native_and_anc.fasta --output isomaltase_all_esm2_scores_8M --model esm2_t6_8M_UR50D
