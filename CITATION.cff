@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: If you use this software, please cite the associated publication.
 title: Do protein language models understand evolution? Mixed evidence from ancestral
-  sequences and ESM2.
+  sequences and ESM2
 doi: 10.57844/arcadia-5cwu-spn8
 authors:
 - family-names: Kiefl
@@ -18,7 +18,7 @@ authors:
   orcid: https://orcid.org/0000-0002-1073-1494
 preferred-citation:
   title: Do protein language models understand evolution? Mixed evidence from ancestral
-    sequences and ESM2.
+    sequences and ESM2
   type: article
   doi: 10.57844/arcadia-5cwu-spn8
   authors:
