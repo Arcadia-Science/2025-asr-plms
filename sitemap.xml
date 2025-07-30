@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Arcadia-Science.github.io/2025-asr-plms/index.html</loc>
-    <lastmod>2025-07-30T19:42:00.966Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/SETUP.html</loc>
-    <lastmod>2025-07-30T19:42:00.966Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/CONTRIBUTING.html</loc>
-    <lastmod>2025-07-30T19:42:00.966Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/FAQ.html</loc>
-    <lastmod>2025-07-30T19:42:00.966Z</lastmod>
+    <loc>https://Arcadia-Science.github.io/2025-asr-plms/index_v1.0.html</loc>
+    <lastmod>2025-07-30T21:18:27.676Z</lastmod>
   </url>
   <url>
     <loc>https://Arcadia-Science.github.io/2025-asr-plms/ASR/ASR_notebook.html</loc>
-    <lastmod>2025-07-30T19:42:00.770Z</lastmod>
+    <lastmod>2025-07-30T21:18:27.468Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/FAQ.html</loc>
+    <lastmod>2025-07-30T21:18:27.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/CONTRIBUTING.html</loc>
+    <lastmod>2025-07-30T21:18:27.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Arcadia-Science.github.io/2025-asr-plms/pages/SETUP.html</loc>
+    <lastmod>2025-07-30T21:18:27.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Arcadia-Science.github.io/2025-asr-plms/index.html</loc>
+    <lastmod>2025-07-30T21:18:27.675Z</lastmod>
   </url>
 </urlset>
