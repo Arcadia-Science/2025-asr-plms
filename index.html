@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,14 +91,15 @@ div.csl-indent {
 <link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2e258beaaab509f8ad3e40bd486fc5fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0efc9ca32613c735a474efe03a7559eb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -771,7 +772,8 @@ cookieconsent.run({
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="https://research.arcadiascience.com/" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo_text.png" alt="" class="navbar-logo">
+    <img src="./assets/logo_text.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/logo_text.png" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -890,12 +892,12 @@ cookieconsent.run({
 
 
 <div class="callout callout-style-default callout-note callout-titled" title="AI usage disclosure">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-AI usage disclosure
+<span class="screen-reader-only">Note</span>AI usage disclosure
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -941,7 +943,7 @@ Note
 <div id="cell-fig-1" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcadia_pycolor <span class="im">as</span> apc</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arcadia_pycolor <span class="im">as</span> apc</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> plot_image_with_arrow_and_circles, plot_image_with_arrows</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -955,7 +957,7 @@ Note
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    arrow_ys<span class="op">=</span>[<span class="fl">0.045</span>],</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>[<span class="st">"P00813_Homo_sapiens"</span>],</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    text_offsets<span class="op">=</span>[<span class="fl">0.01</span>],</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-1" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -974,7 +976,7 @@ Figure&nbsp;1: Phylogenetic tree of ADA1 homologs with location of human ADA1 in
 <div id="cell-fig-2" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>node_img_path <span class="op">=</span> <span class="st">"images/tree_nodes_example.png"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>node_img_path <span class="op">=</span> <span class="st">"images/tree_nodes_example.png"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plot_image_with_arrow_and_circles(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    img_path<span class="op">=</span>node_img_path,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    x_start<span class="op">=</span><span class="fl">0.97</span>,</span>
@@ -994,7 +996,7 @@ Figure&nbsp;1: Phylogenetic tree of ADA1 homologs with location of human ADA1 in
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">0.066</span>, <span class="fl">0.625</span>),</span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    circle_radius<span class="op">=</span><span class="dv">6</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-2" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1031,7 +1033,7 @@ Note
 <div id="1af4d91c" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -1068,7 +1070,7 @@ Note
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: calc_branch_length_to_root_node(tree, x[<span class="dv">4</span>:])</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x.startswith(<span class="st">"node"</span>)</span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> calc_branch_length_to_root_leaf(tree, x)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1078,9 +1080,9 @@ Note
 <div id="cell-fig-3" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> get_node_labels_leaf_to_root, plot_evo_path</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> get_node_labels_leaf_to_root, plot_evo_path</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"P00813_Homo_sapiens"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"P00813_Homo_sapiens"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-3" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1101,7 +1103,7 @@ Figure&nbsp;3: ESM2 pseudo-perplexity scores for ADA1 sequences, colored by ML p
 <div id="cell-fig-4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_image_with_arrows(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_image_with_arrows(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    img_path,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x_starts<span class="op">=</span>[<span class="fl">0.73</span>, <span class="fl">0.89</span>, <span class="fl">0.86</span>, <span class="fl">0.78</span>],</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    x_ends<span class="op">=</span>[<span class="fl">0.60</span>, <span class="fl">0.76</span>, <span class="fl">0.73</span>, <span class="fl">0.65</span>],</span>
@@ -1113,7 +1115,7 @@ Figure&nbsp;3: ESM2 pseudo-perplexity scores for ADA1 sequences, colored by ML p
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>,</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    text_offsets<span class="op">=</span>[<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>],</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-4" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1131,9 +1133,9 @@ Figure&nbsp;4: Phylogenetic tree of ADA1 with additional extant leaf positions i
 <div class="cell page-columns page-full" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"A0A673JME8_Sinocyclocheilus_rhinocerous"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"A0A673JME8_Sinocyclocheilus_rhinocerous"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"A0A8S4BYQ7_Menidia_menidia"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plot_evo_path(all_scores, tree, <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-5" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="6">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1190,7 +1192,7 @@ Figure&nbsp;5: ESM2 pseudo-perplexity vs distance to tree root for three additio
 <div id="54b05f93" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Seq <span class="im">import</span> Seq</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.Seq <span class="im">import</span> Seq</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> Bio.SeqRecord <span class="im">import</span> SeqRecord</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> generate_node_consensus, get_node_labels_leaf_to_root</span>
@@ -1221,14 +1223,14 @@ Figure&nbsp;5: ESM2 pseudo-perplexity vs distance to tree root for three additio
 <span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> entry <span class="op">+</span> <span class="st">"_consensus"</span></span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> SeqRecord(Seq(consensus_seq), <span class="bu">id</span><span class="op">=</span>name, description<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    records.append(record)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    records.append(record)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>We then calculated pseudo-perplexity scores for these consensus ancestors using the ESM2 650M-parameter model.</p>
 <div id="af8ec43d" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve esm2 scores for consensus seqs</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve esm2 scores for consensus seqs</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>consensus_file <span class="op">=</span> esm2_dir <span class="op">/</span> <span class="st">"consensus_ADA1_ancestors_esm2_scores_650M.csv"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>consensus_scores <span class="op">=</span> pd.read_csv(consensus_file)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>consensus_scores[<span class="st">"orig_id"</span>] <span class="op">=</span> consensus_scores[<span class="st">"sequence_id"</span>].<span class="bu">apply</span>(</span>
@@ -1245,19 +1247,19 @@ Figure&nbsp;5: ESM2 pseudo-perplexity vs distance to tree root for three additio
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># add new consensus seqs and scores to scores df</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>all_scores <span class="op">=</span> all_scores.merge(consensus_scores, how<span class="op">=</span><span class="st">"left"</span>, on<span class="op">=</span><span class="st">"sequence_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>all_scores <span class="op">=</span> all_scores.merge(consensus_scores, how<span class="op">=</span><span class="st">"left"</span>, on<span class="op">=</span><span class="st">"sequence_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Below, we compared the ESM2 pseudo-perplexity scores of these consensus ancestors to the scores of genuine maximum likelihood ancestors for the four extant sequences we previously examined.&nbsp;</p>
 <div class="cell page-columns page-full" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> plot_evo_path_quiver</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> plot_evo_path_quiver</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(all_scores, tree, <span class="st">"P00813_Homo_sapiens"</span>, <span class="st">"upper right"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(all_scores, tree, <span class="st">"A0A8S4BYQ7_Menidia_menidia"</span>)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(all_scores, tree, <span class="st">"A0A673JME8_Sinocyclocheilus_rhinocerous"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(all_scores, tree, <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(all_scores, tree, <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-6" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="9">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1326,7 +1328,7 @@ Figure&nbsp;6: ESM2 pseudo-perplexity (pppl) scores for consensus and maximum li
 <div id="ce7366a4" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>small_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_all_esm2_scores_8M.csv"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>small_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_all_esm2_scores_8M.csv"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>med_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_all_esm2_scores_35M.csv"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>large_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_all_esm2_scores_150M.csv"</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>huge_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_all_esm2_scores_3B.csv"</span>)</span>
@@ -1365,14 +1367,14 @@ Figure&nbsp;6: ESM2 pseudo-perplexity (pppl) scores for consensus and maximum li
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> x: calc_branch_length_to_root_node(tree, x[<span class="dv">4</span>:])</span>
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x.startswith(<span class="st">"node"</span>)</span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> calc_branch_length_to_root_leaf(tree, x)</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>We can then plot the same relationship between ESM2 pseudo-perplexity and distance to tree root for these different model sizes to see if they exhibit similar behavior.</p>
 <div class="cell page-columns page-full" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> plot_multiple_evo_lines</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> plot_multiple_evo_lines</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plot_multiple_evo_lines(</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    [</span>
@@ -1417,7 +1419,7 @@ Figure&nbsp;6: ESM2 pseudo-perplexity (pppl) scores for consensus and maximum li
 <span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    tree,</span>
 <span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>    normalize<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-7" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="11">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1481,7 +1483,7 @@ Figure&nbsp;7: ESM2 pseudo-perplexity vs distance to tree root for five differen
 <div class="cell page-columns page-full" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_multiple_evo_lines(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_multiple_evo_lines(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    [</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        (small_model_scores, <span class="st">"P00813_Homo_sapiens"</span>, <span class="st">"8M"</span>),</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        (med_model_scores, <span class="st">"P00813_Homo_sapiens"</span>, <span class="st">"35M"</span>),</span>
@@ -1520,7 +1522,7 @@ Figure&nbsp;7: ESM2 pseudo-perplexity vs distance to tree root for five differen
 <span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        (huge_model_scores, <span class="st">"A0A8J6K0P8_Eleutherodactylus_coqui"</span>, <span class="st">"3B"</span>),</span>
 <span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    tree,</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-8" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="12">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1591,7 +1593,7 @@ Figure&nbsp;8: Normalized ESM2 pseudo-perplexity vs distance to tree root for di
 <div id="cell-fig-9" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>img_path <span class="op">=</span> <span class="st">"images/isomaltase_tree.png"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>img_path <span class="op">=</span> <span class="st">"images/isomaltase_tree.png"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plot_image_with_arrows(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    img_path,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    x_starts<span class="op">=</span>[<span class="fl">0.94</span>, <span class="fl">0.96</span>, <span class="fl">0.88</span>],</span>
@@ -1603,7 +1605,7 @@ Figure&nbsp;8: Normalized ESM2 pseudo-perplexity vs distance to tree root for di
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"A0A4T0C5S8_Aureobasidium_pullulans"</span>,</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    text_offsets<span class="op">=</span>[<span class="fl">0.01</span>, <span class="fl">0.01</span>, <span class="fl">0.01</span>],</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-9" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1623,7 +1625,7 @@ Figure&nbsp;9: Phylogenetic tree of isomaltase with extant leaf positions indica
 <div class="cell page-columns page-full" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get ESM2 scores for isomaltase</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get ESM2 scores for isomaltase</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>iso_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"isomaltase_all_esm2_scores_650M.csv"</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve the dictionary of probabilities from PAML output</span></span>
@@ -1647,7 +1649,7 @@ Figure&nbsp;9: Phylogenetic tree of isomaltase with extant leaf positions indica
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>plot_evo_path(iso_scores, iso_tree, <span class="st">"A0A420MWB1_Fusarium_oxysporum"</span>, labels<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>plot_evo_path(iso_scores, iso_tree, <span class="st">"A0A177DQL5_Alternaria_alternata"</span>, labels<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>plot_evo_path(iso_scores, iso_tree, <span class="st">"A0A4T0C5S8_Aureobasidium_pullulans"</span>, labels<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>plot_evo_path(iso_scores, iso_tree, <span class="st">"A0A4T0C5S8_Aureobasidium_pullulans"</span>, labels<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-10" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="14">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1700,7 +1702,7 @@ Figure&nbsp;10: ESM2 pseudo-perplexity scores for isomaltase sequences, colored 
 <div class="cell page-columns page-full" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate isomaltase consensus ancestors</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate isomaltase consensus ancestors</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>leaves_of_interest <span class="op">=</span> [</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"A0A420MWB1_Fusarium_oxysporum"</span>,</span>
@@ -1749,7 +1751,7 @@ Figure&nbsp;10: ESM2 pseudo-perplexity scores for isomaltase sequences, colored 
 <span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(iso_scores, iso_tree, <span class="st">"A0A420MWB1_Fusarium_oxysporum"</span>, <span class="st">"lower right"</span>)</span>
 <span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(iso_scores, iso_tree, <span class="st">"A0A177DQL5_Alternaria_alternata"</span>)</span>
-<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(iso_scores, iso_tree, <span class="st">"A0A4T0C5S8_Aureobasidium_pullulans"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>plot_evo_path_quiver(iso_scores, iso_tree, <span class="st">"A0A4T0C5S8_Aureobasidium_pullulans"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-11" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="15">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1802,7 +1804,7 @@ Figure&nbsp;11: ESM2 pseudo-perplexity (pppl) scores for consensus and maximum l
 <div class="cell page-columns page-full" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load esm2 scores for isomaltase</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load esm2 scores for isomaltase</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>iso_small_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"isomaltase_all_esm2_scores_8M.csv"</span>)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>iso_med_model_scores <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"isomaltase_all_esm2_scores_35M.csv"</span>)</span>
@@ -1877,7 +1879,7 @@ Figure&nbsp;11: ESM2 pseudo-perplexity (pppl) scores for consensus and maximum l
 <span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>    ],</span>
 <span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>    iso_tree,</span>
 <span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>    normalize<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="fig-12" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="16">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
@@ -1933,7 +1935,7 @@ Figure&nbsp;12: Normalized ESM2 pseudo-perplexity vs distance to tree root for d
 <div id="f7e5fae8" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pull data for all remaining ADA1 sequences</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pull data for all remaining ADA1 sequences</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>remaining_df <span class="op">=</span> pd.read_csv(esm2_dir <span class="op">/</span> <span class="st">"ADA1_remaining_esm2_scores_650M.csv"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>remaining_df <span class="op">=</span> remaining_df[[<span class="st">"sequence_id"</span>, <span class="st">"sequence"</span>, <span class="st">"pseudo_perplexity"</span>]]</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1977,7 +1979,7 @@ Figure&nbsp;12: Normalized ESM2 pseudo-perplexity vs distance to tree root for d
 <span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a><span class="co"># print sizes of each</span></span>
 <span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total ADA1 sequences: </span><span class="sc">{</span><span class="bu">len</span>(full_data)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Isomaltase sequences: </span><span class="sc">{</span><span class="bu">len</span>(full_data_iso)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total Isomaltase sequences: </span><span class="sc">{</span><span class="bu">len</span>(full_data_iso)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total ADA1 sequences: 461
@@ -1988,12 +1990,12 @@ Total Isomaltase sequences: 571</code></pre>
 <div id="cell-fig-13" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> violin_plot</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> violin_plot</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> [<span class="fl">0.7</span>, <span class="fl">0.8</span>, <span class="fl">0.85</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="fl">1.0</span>, <span class="fl">1.1</span>]</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>bin_labels <span class="op">=</span> [<span class="st">"&lt; 0.8"</span>, <span class="st">"0.80-0.85"</span>, <span class="st">"0.85-0.90"</span>, <span class="st">"0.90-0.95"</span>, <span class="st">"0.95-1.00"</span>, <span class="st">"Extant"</span>]</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>violin_plot(full_data_both, bins, bin_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>violin_plot(full_data_both, bins, bin_labels)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div id="fig-13" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -2013,10 +2015,10 @@ Figure&nbsp;13: Violin plot of ESM2 pseudo-perplexity scores for both ADA1 and i
 <div id="bf2c3dc1" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> kruskal_wallis_with_significant_posthoc</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.analysis.data_processing <span class="im">import</span> kruskal_wallis_with_significant_posthoc</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Kruskal-Wallis test and Dunn-Benforroni and print significant comparisons</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>kruskal_wallis_with_significant_posthoc(full_data_both, bins, bin_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>kruskal_wallis_with_significant_posthoc(full_data_both, bins, bin_labels)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Kruskal-Wallis test result: H = 191.825, p = 1.591e-39
@@ -2163,13 +2165,14 @@ York R, Bell A, Avasthi P, McGeever E. (2025). Phylogenies and biological founda
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
