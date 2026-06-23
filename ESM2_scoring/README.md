@@ -54,12 +54,12 @@ python esm2_pppl_calculator.py --input inputs/ADA1_native_and_anc.fasta --output
 python esm2_pppl_calculator.py --input inputs/consensus_ADA1_ancestors.fa --output outputs/consensus_ADA1_ancestors_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
 python esm2_pppl_calculator.py --input inputs/consensus_isomaltase_ancestors.fa --output outputs/consensus_isomaltase_ancestors_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
 
-python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_8M --model esm2_t6_8M_UR50D
-python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_35M --model esm2_t12_35M_UR50D
-python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_150M --model esm2_t30_150M_UR50D
-python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_3B --model esm2_t36_3B_UR50D
-python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_650M --model esm2_t33_650M_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_8M.csv --model esm2_t6_8M_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_35M.csv --model esm2_t12_35M_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_150M.csv --model esm2_t30_150M_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_3B.csv --model esm2_t36_3B_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_native_and_anc.fasta --output outputs/isomaltase_all_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
 
 python esm2_pppl_calculator.py --input inputs/ADA1_remaining.fasta --output outputs/ADA1_remaining_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
-python esm2_pppl_calculator.py --input inputs/isomaltase_remaining.fasta --output isomaltase_remaining_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
+python esm2_pppl_calculator.py --input inputs/isomaltase_remaining.fasta --output outputs/isomaltase_remaining_esm2_scores_650M.csv --model esm2_t33_650M_UR50D
 ```
