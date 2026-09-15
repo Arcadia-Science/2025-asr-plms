@@ -773,7 +773,11 @@ cookieconsent.run({
     <ul class="dropdown-menu" aria-labelledby="nav-menu-iconify-qlementine-iconsversion-control-16-">    
         <li>
     <a class="dropdown-item" href="../index.html">
- <span class="dropdown-text">v1.2 (latest)</span></a>
+ <span class="dropdown-text">v1.3 (latest)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../index_v1.2.html">
+ <span class="dropdown-text">v1.2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../index_v1.1.html">
@@ -890,7 +894,7 @@ cookieconsent.run({
 <div id="cell-3" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>input_fasta <span class="op">=</span> Path(input_fasta)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>outgroup_path <span class="op">=</span> Path(outgroup_path)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>run_folder <span class="op">=</span> Path(<span class="st">"ADA1_ASR/outputs"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>run_folder <span class="op">=</span> input_fasta.parent.parent <span class="op">/</span> <span class="st">"outputs"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>run_folder.mkdir(exist_ok<span class="op">=</span><span class="va">True</span>, parents<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="cell-5" class="cell">
